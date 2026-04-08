@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Title from '~/components/Title';
+
 // layout custom 적용을 위한 코드
 definePageMeta({
   layout: 'custom',
@@ -7,7 +9,7 @@ definePageMeta({
 
 <template>
   <main>
-    <h1>Tasks</h1>
+    <Title title="Tasks"/>
     <TodoItem/>
   </main>
 </template>

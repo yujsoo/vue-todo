@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import IconHome from '~/assets/images/icons/ic_home.svg';
+import IconHome from '~/assets/images/icon/ic_home.svg';
+import IconTask from '~/assets/images/icon/ic_task.svg';
+import IconCalendar from '~/assets/images/icon/ic_calendar.svg';
 </script>
 
 <template>
@@ -8,8 +10,14 @@ import IconHome from '~/assets/images/icons/ic_home.svg';
       <IconHome/>
       Home
     </NuxtLink>
-    <NuxtLink to="/about">Tasks</NuxtLink>
-    <NuxtLink to="/calendar">Calendar</NuxtLink>
+    <NuxtLink to="/tasks">
+      <IconTask/>
+      Tasks
+    </NuxtLink>
+    <NuxtLink to="/calendar">
+      <IconCalendar/>
+      Calendar
+    </NuxtLink>
   </nav>
 </template>
 
@@ -26,10 +34,18 @@ nav {
 }
 
 nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   flex: 1;
   color: #638773;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
+}
+
+nav a svg {
+  display: block;
+  margin: 0 auto;
 }
 </style>
