@@ -3,5 +3,5 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   css: ['~/assets/reset.css', '~/assets/font.css'],
-  modules: ['nuxt-svgo']
+  modules: ['nuxt-svgo', '@pinia/nuxt']
 })
