@@ -10,7 +10,7 @@ import IconCalendar from '~/assets/images/icon/ic_calendar.svg';
       <IconHome/>
       Home
     </NuxtLink>
-    <NuxtLink to="/tasks">
+    <NuxtLink to="/task">
       <IconTask/>
       Tasks
     </NuxtLink>

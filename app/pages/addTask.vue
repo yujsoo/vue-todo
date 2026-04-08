@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Title from '~/components/Title.vue';
+import HeadTitle from '~/components/HeadTitle.vue';
 
 // layout custom 적용을 위한 코드
 definePageMeta({
@@ -9,7 +9,6 @@ definePageMeta({
 
 <template>
   <main>
-    <Title title="Tasks"/>
-    <TodoItem text="Complete project proposal"/>
+    <HeadTitle title="Add Tasks"/>
   </main>
 </template>
