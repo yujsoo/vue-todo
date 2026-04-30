@@ -2,6 +2,7 @@
 
 interface Props {
   text: string;
+  priority: 'low' | 'medium' | 'high';
 }
 
 defineProps<Props>();
@@ -12,7 +13,7 @@ defineProps<Props>();
     <CheckBox/>
     <div class="con">
       <p>{{ text }}</p>
-      <Tag/>
+      <Tag :priority="priority" />
     </div>
   </div>
 </template>

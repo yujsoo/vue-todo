@@ -1,5 +1,14 @@
+<script setup lang="ts">
+
+interface Props {
+  priority: 'low' | 'medium' | 'high';
+}
+
+defineProps<Props>();
+</script>
+
 <template>
-  <span class="tag">High Priority</span>
+  <span class="tag">{{ priority }}</span>
 </template>
 
 <style scoped>

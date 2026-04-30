@@ -10,6 +10,7 @@ definePageMeta({
   layout: 'custom',
 });
 
+
 const store = useTodoListStore();
 const { tasks } = storeToRefs(store);
 
@@ -23,6 +24,6 @@ const { tasks } = storeToRefs(store);
       </NuxtLink>
     </HeadTitle>
 
-    <TodoItem :text="item.task" v-for="item in tasks" :key="item.id"/>
+    <TodoItem :text="item.task" :priority="item.priority" v-for="item in tasks" :key="item.id"/>
   </main>
 </template>
