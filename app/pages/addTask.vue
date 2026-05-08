@@ -41,7 +41,10 @@ const options = [
   <main>
     <HeadTitle title="Add Tasks"/>
     <form action="" @submit.prevent="handleAdd">
-      <input type="text" v-model="inputText">
+      <div class="input-container">
+        <input type="text" v-model="inputText" class="'">
+        <button type="submit">제출</button>
+      </div>
       <div>
         <label v-for="{value, id, label} in options" :key="id">
           <input type="radio" :id="id" :value="value" name="priority" v-model="selectPriority"/>
@@ -60,15 +63,27 @@ const options = [
 <!--          <span>Low Priority</span>-->
 <!--        </label>-->
       </div>
-      <button type="submit">제출</button>
     </form>
   </main>
 </template>
 
 <style scoped>
-.tag {
-  border-radius: 10px;
-  background-color:#eee;
+.input-container {
+  display: flex;
+  gap: 16px;
 }
 
+.input-container input {
+  height: 40px;
+  flex: auto;
+  border: 1px solid #eee;
+}
+
+.input-container button {
+  width: 90px;
+  flex-shrink: 0;
+  color: #fff;
+  border: none;
+  background: #638773;
+}
 </style>
