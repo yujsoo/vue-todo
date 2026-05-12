@@ -1,10 +1,15 @@
 <script setup lang="ts">
+interface Props {
+  modelValue: boolean;
+}
 
+defineProps<Props>();
+defineEmits(['update:modelValue']);
 </script>
 
 <template>
   <label class="checkbox">
-    <input type="checkbox" id="checkbox"/>
+    <input type="checkbox" id="checkbox" :checked="modelValue" @change="$emit('update:modelValue', ($event.target as HTMLInputElement).checked)" />
     <i></i>
   </label>
 </template>

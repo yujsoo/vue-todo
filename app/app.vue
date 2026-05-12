@@ -1,7 +1,3 @@
-<script setup>
-import '@/assets/reset.css';
-</script>
-
 <template>
   <!-- 레이아웃 설정하려면 NuxtLayout -->
   <NuxtLayout>

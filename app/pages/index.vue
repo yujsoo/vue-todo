@@ -31,7 +31,9 @@ function listClick(id) {
     el.style.height= 0;
     boxOpenId.value = null
   }else {
-    // 다른거 닫힘
+    if (boxOpenId.value !== null) {
+      textBoxes.value[boxOpenId.value].style.height = 0;
+    }
     el.style.height = el.scrollHeight + 'px';
     boxOpenId.value = id;
   }
@@ -42,7 +44,7 @@ function listClick(id) {
 <template>
   <main>
     <ul class="text-list">
-      <li v-for="(item,index) in list" :key="item.id" @click="listClick(index)" :class="boxOpenId == item.id ? 'active' : ''">
+      <li v-for="(item,index) in list" :key="item.id" @click="listClick(index)" :class="boxOpenId == index ? 'active' : ''">
         <p class="title">{{item.title}}</p>
         <div class="text-box" ref="textBoxes">
           <div>{{item.content}}</div>
@@ -50,6 +52,7 @@ function listClick(id) {
         <div class="bg01"/>
       </li>
     </ul>
+    <ListTab/>
     <button type="button" class="fix-btn" @click="fixBtnClick"/>
     <div v-show="isVisible" class="fix-content" :class="{'is-visible': isVisible}">
       버튼 클릭시 보이는 요소
@@ -63,10 +66,6 @@ function listClick(id) {
     border-bottom: 1px solid #000;
   }
 
-  .text-list li.active .text-box {
-    overflow: visible;
-  }
-
   .text-list li.active [class^="bg"] {
     opacity: 1;
   }
@@ -77,6 +76,7 @@ function listClick(id) {
   }
 
   .text-box {
+    height:0;
     transition: height 0.3s ease;
     overflow:hidden;
   }

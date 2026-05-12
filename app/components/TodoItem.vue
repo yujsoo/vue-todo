@@ -3,14 +3,17 @@
 interface Props {
   text: string;
   priority: 'low' | 'medium' | 'high';
+  completed: boolean;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
+const emit = defineEmits(["update:modelValue"]);
+
 </script>
 
 <template>
   <div class="todo-item">
-    <CheckBox/>
+    <CheckBox :modelValue="completed" @update:modelValue="emit('update:modelValue', $event)" />
     <div class="con">
       <p>{{ text }}</p>
       <Tag :priority="priority" />

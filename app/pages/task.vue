@@ -14,6 +14,12 @@ definePageMeta({
 const store = useTodoListStore();
 const { tasks } = storeToRefs(store);
 
+function handleToggle(id: number) {
+  store.toggleTask(id);
+  const task = tasks.value.find(t => t.id === id);
+  console.log('completed:', task?.completed);
+}
+
 </script>
 
 <template>
@@ -24,6 +30,6 @@ const { tasks } = storeToRefs(store);
       </NuxtLink>
     </HeadTitle>
 
-    <TodoItem :text="item.task" :priority="item.priority" v-for="item in tasks" :key="item.id"/>
+    <TodoItem :text="item.task" :priority="item.priority" :completed="item.completed" @update:modelValue="handleToggle(item.id)" v-for="item in tasks" :key="item.id"/>
   </main>
 </template>
